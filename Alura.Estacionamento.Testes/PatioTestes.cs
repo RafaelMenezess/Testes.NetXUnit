@@ -10,6 +10,7 @@ namespace Alura.Estacionamento.Testes
     {
         private Veiculo veiculo;
         private Patio estacionamento;
+        private Operador operador;
         public ITestOutputHelper saidaConsoleTeste;
 
         public PatioTestes(ITestOutputHelper _saidaConsoleTeste)
@@ -18,6 +19,9 @@ namespace Alura.Estacionamento.Testes
             saidaConsoleTeste.WriteLine("Construtor invocado.");
             veiculo = new Veiculo();
             estacionamento = new Patio();
+
+            operador = new Operador();
+            operador.Nome = "Adão";
         }
 
         [Fact]
@@ -32,6 +36,7 @@ namespace Alura.Estacionamento.Testes
             veiculo.Modelo = "Celta";
             veiculo.Placa = "AAA-9999";
 
+            estacionamento.OperadorPatio = operador;
             estacionamento.RegistrarEntradaVeiculo(veiculo);
             estacionamento.RegistrarSaidaVeiculo(veiculo.Placa);
 
@@ -58,6 +63,8 @@ namespace Alura.Estacionamento.Testes
             veiculo.Modelo = modelo;
             veiculo.Placa = placa;
 
+            estacionamento.OperadorPatio = operador;
+
             estacionamento.RegistrarEntradaVeiculo(veiculo);
             estacionamento.RegistrarSaidaVeiculo(veiculo.Placa);
 
@@ -79,7 +86,9 @@ namespace Alura.Estacionamento.Testes
             veiculo.Proprietario = proprietario;
             veiculo.Cor = cor;
             veiculo.Modelo = modelo;
-            veiculo.Placa = placa;            
+            veiculo.Placa = placa;
+
+            estacionamento.OperadorPatio = operador;
 
             estacionamento.RegistrarEntradaVeiculo(veiculo);
 
@@ -91,11 +100,13 @@ namespace Alura.Estacionamento.Testes
         }
 
         [Fact]
-        public void AlterarDadosVeiculosDoProprioVeiculo()
+        public void AlterarDadosDoProprioVeiculo()
         {
             //Arrange
             //Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
+            estacionamento.OperadorPatio = operador;
+
             veiculo.Proprietario = "José Silva";
             veiculo.Cor = "Cinza";
             veiculo.Modelo = "Omega";
@@ -107,6 +118,7 @@ namespace Alura.Estacionamento.Testes
             veiculoAlterado.Cor = "Preto";//Alterado
             veiculoAlterado.Modelo = "Omega";
             veiculoAlterado.Placa = "ABC-1234";
+
 
             //Act
             var alterado = estacionamento.AlterarDadosVeiculo(veiculoAlterado);
