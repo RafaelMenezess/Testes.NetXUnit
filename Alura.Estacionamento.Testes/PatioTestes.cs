@@ -24,7 +24,7 @@ namespace Alura.Estacionamento.Testes
         public void ValidaFaturamentoDoEstaciomentoComVeiculo()
         {
             //Arrange
-            Patio estacionamento = new Patio();
+            //Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
             veiculo.Proprietario = "Rafael";
             veiculo.Tipo = TipoVeiculo.Automovel;
@@ -51,7 +51,7 @@ namespace Alura.Estacionamento.Testes
             string placa, string cor, string modelo)
         {
             //Arrange
-            Patio estacionamento = new Patio();
+            //Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
             veiculo.Cor = cor;
@@ -70,31 +70,31 @@ namespace Alura.Estacionamento.Testes
 
         [Theory]
         [InlineData("José", "BBB-1111", "preto", "Gol")]
-        public void LocalizaVeiculoNoPatioComBaseDaPlaca(string proprietario,
+        public void LocalizaVeiculoNoPatioComBaseIdTicket(string proprietario,
             string placa, string cor, string modelo)
         {
             //Arrange
-            Patio estacionamento = new Patio();
+            //Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
             veiculo.Cor = cor;
             veiculo.Modelo = modelo;
-            veiculo.Placa = placa;
+            veiculo.Placa = placa;            
 
             estacionamento.RegistrarEntradaVeiculo(veiculo);
 
             //Act
-            var consultado = estacionamento.PesquisaVeiculo(placa);
+            var consultado = estacionamento.PesquisaVeiculo(veiculo.IdTicket);
 
             //Assert
-            Assert.Equal(placa, consultado.Placa);
+            Assert.Contains("### Ticket Estacionamento ###", consultado.Ticket);
         }
 
         [Fact]
         public void AlterarDadosVeiculosDoProprioVeiculo()
         {
             //Arrange
-            Patio estacionamento = new Patio();
+            //Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
             veiculo.Proprietario = "José Silva";
             veiculo.Cor = "Cinza";
