@@ -24,7 +24,7 @@ namespace Alura.Estacionamento.Testes
         public void ValidaFaturamentoDoEstaciomentoComVeiculo()
         {
             //Arrange
-            //Patio estacionamento = new Patio();
+            Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
             veiculo.Proprietario = "Rafael";
             veiculo.Tipo = TipoVeiculo.Automovel;
@@ -51,7 +51,7 @@ namespace Alura.Estacionamento.Testes
             string placa, string cor, string modelo)
         {
             //Arrange
-            //Patio estacionamento = new Patio();
+            Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
             veiculo.Cor = cor;
@@ -74,7 +74,7 @@ namespace Alura.Estacionamento.Testes
             string placa, string cor, string modelo)
         {
             //Arrange
-            //Patio estacionamento = new Patio();
+            Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
             veiculo.Proprietario = proprietario;
             veiculo.Cor = cor;
@@ -94,7 +94,7 @@ namespace Alura.Estacionamento.Testes
         public void AlterarDadosVeiculosDoProprioVeiculo()
         {
             //Arrange
-            //Patio estacionamento = new Patio();
+            Patio estacionamento = new Patio();
             //Veiculo veiculo = new Veiculo();
             veiculo.Proprietario = "José Silva";
             veiculo.Cor = "Cinza";
